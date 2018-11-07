@@ -29,8 +29,6 @@ public class ChatBot1
 			statement = in.nextLine();
 			//getResponse handles the user reply
 			System.out.println(getResponse(statement));
-
-
 		}
 
 	}
@@ -94,7 +92,6 @@ public class ChatBot1
 		{
 			response = transformIFeelStatement(statement);
 		}
-
 		else
 		{
 			response = getRandomResponse();
@@ -147,8 +144,6 @@ public class ChatBot1
 		String restOfStatement = statement.substring(psn + 6).trim();
 		return "Elmo like to know why you are " + restOfStatement + "?";
 	}
-
-
 	/**
 	 * Take a statement with "I <something> you" and transform it into
 	 * "Why do you <something> me?"
@@ -191,11 +186,6 @@ public class ChatBot1
 		String restOfStatement = statement.substring(psnOfI + 6).trim();
 		return "Elmo Wonder Why do you feel " + restOfStatement + " ?";
 	}
-
-
-
-
-
 	/**
 	 * Search for one word in phrase. The search is not case
 	 * sensitive. This method will check that the given goal
@@ -292,11 +282,10 @@ public class ChatBot1
 			"Hmmm.",
 			"Do you really think so?",
 			"You don't say.",
-			"It's all boolean to me.",
-			"So, would you like to go for a walk?",
+			"It's all elmo to me.",
+			"So, would you like to play?",
 			"Could you say that again?"
 	};
-	private String [] randomAngryResponses = {"Bahumbug.", "Harumph", "The rage consumes me!"};
+	private String [] randomAngryResponses = {"Elmo Love You", "Harumph", "Elmo is consumed by love"};
 	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "You make me feel like a brand new pair of shoes."};
-
 }
