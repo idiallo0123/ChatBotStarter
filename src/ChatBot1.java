@@ -281,11 +281,11 @@ public class ChatBot1
 	private String [] randomNeutralResponses = {"Interesting, tell me more",
 			"Hmmm.",
 			"Do you really think so?",
-			"You don't say.",
+			"Na na na. na na na, Elmos world!",
 			"It's all elmo to me.",
 			"So, would you like to play?",
 			"Could you say that again?"
 	};
-	private String [] randomAngryResponses = {"Elmo Love You", "Harumph", "Elmo is consumed by love"};
+	private String [] randomAngryResponses = {"Elmo Love You", "Tickle me!!!", "Elmo is consumed by love"};
 	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "You make me feel like a brand new pair of shoes."};
 }
