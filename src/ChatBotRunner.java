@@ -23,14 +23,14 @@ public class ChatBotRunner
 		String statement = in.nextLine();
 
 
-		while (!statement.equals("Bye"))
+		while (!statement.equalsIgnoreCase("Bye"))
 		{
 			//Use Logic to control which chatbot is handling the conversation\
 			//This example has only chatbot1
 
 
 
-			chatbot1.chatLoop(statement);
+			chatbot3.chatLoop(statement);
 
 
 			statement = in.nextLine();

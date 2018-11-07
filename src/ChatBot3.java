@@ -24,7 +24,7 @@ public class ChatBot3
 		System.out.println (getGreeting());
 
 
-		while (!statement.equals("Bye"))
+		while (!statement.equalsIgnoreCase("Bye"))
 		{
 
 
@@ -34,6 +34,7 @@ public class ChatBot3
 
 
 		}
+		System.out.println(getRandomFarewell());
 
 	}
 	/**
@@ -42,9 +43,8 @@ public class ChatBot3
 	 */	
 	public String getGreeting()
 	{
-		return "Hi, what is up?";
+		return "What do you want?";
 	}
-	
 	/**
 	 * Gives a response to a user statement
 	 * 
@@ -54,11 +54,11 @@ public class ChatBot3
 	 */
 	public String getResponse(String statement)
 	{
-		String response = "";
+		String response;
 		
 		if (statement.length() == 0)
 		{
-			response = "Say something, please.";
+			response = getRandomIdle();
 		}
 
 		else if (findKeyword(statement, "no") >= 0)
@@ -80,7 +80,7 @@ public class ChatBot3
 		}
 		else if (findKeyword(statement, "I want",0) >= 0)
 		{
-			response = transformIWantStatement(statement);
+			response = transformILikeStatement(statement);
 		}	
 		else
 		{
@@ -119,7 +119,7 @@ public class ChatBot3
 	 * @param statement the user statement, assumed to contain "I want"
 	 * @return the transformed statement
 	 */
-	private String transformIWantStatement(String statement)
+	private String transformILikeStatement(String statement)
 	{
 		//  Remove the final period, if there is one
 		statement = statement.trim();
@@ -130,9 +130,9 @@ public class ChatBot3
 			statement = statement.substring(0, statement
 					.length() - 1);
 		}
-		int psn = findKeyword (statement, "I want", 0);
+		int psn = findKeyword (statement, "I like", 0);
 		String restOfStatement = statement.substring(psn + 6).trim();
-		return "Would you really be happy if you had " + restOfStatement + "?";
+		return "Why like  " + restOfStatement + " when you can like trash?";
 	}
 	
 	
@@ -250,26 +250,22 @@ public class ChatBot3
 	private String getRandomResponse ()
 	{
 		Random r = new Random ();
-		if (emotion == 0)
-		{	
-			return randomNeutralResponses [r.nextInt(randomNeutralResponses.length)];
-		}
-		if (emotion < 0)
+		if (emotion <= 0)
 		{	
 			return randomAngryResponses [r.nextInt(randomAngryResponses.length)];
 		}	
 		return randomHappyResponses [r.nextInt(randomHappyResponses.length)];
 	}
-	
-	private String [] randomNeutralResponses = {"Interesting, tell me more",
-			"Hmmm.",
-			"Do you really think so?",
-			"You don't say.",
-			"It's all boolean to me.",
-			"So, would you like to go for a walk?",
-			"Could you say that again?"
-	};
-	private String [] randomAngryResponses = {"Bahumbug.", "Harumph", "The rage consumes me!"};
+	private String getRandomFarewell(){
+		Random r=new Random();
+		return randomFarewells[r.nextInt(randomFarewells.length)];
+	}
+	private String getRandomIdle(){
+		Random r=new Random();
+		return randomIdle[r.nextInt((randomIdle.length))];
+	}
+	private String [] randomAngryResponses = {"I do not enjoy your pestering"};
 	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "You make me feel like a brand new pair of shoes."};
-	
+	private String[] randomFarewells={"Have a rotten day!","Now leave me alone and get lost!","Scram!"};
+	private String[] randomIdle={"Are you just going to stand there?","You're still here? Hey, why don't you go read a book or something?"};
 }
