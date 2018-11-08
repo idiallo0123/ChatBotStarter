@@ -7,11 +7,10 @@ import java.util.Scanner;
  * @author Brooklyn Tech CS Department
  * @version September 2018
  */
-public class ChatBot3
+public class CookieMonster
 {
 	//emotion can alter the way our bot responds. Emotion can become more negative or positive over time.
 	int emotion = 0;
-
 
 
 	/**
@@ -34,7 +33,6 @@ public class ChatBot3
 
 
 		}
-		System.out.println(getRandomFarewell());
 
 	}
 	/**
@@ -43,8 +41,9 @@ public class ChatBot3
 	 */	
 	public String getGreeting()
 	{
-		return "What do you want?";
+		return "Hi, got any cookies?";
 	}
+	
 	/**
 	 * Gives a response to a user statement
 	 * 
@@ -54,17 +53,23 @@ public class ChatBot3
 	 */
 	public String getResponse(String statement)
 	{
-		String response;
+		String response = "";
 		
 		if (statement.length() == 0)
 		{
-			response = getRandomIdle();
+			response = "Say something or give me cookies.";
 		}
 
 		else if (findKeyword(statement, "no") >= 0)
 		{
-			response = "No";
+			response = "You're so negative because you don't have cookies. >:(";
                 	emotion--;
+		}
+		
+		else if (findKeyword(statement, "cookie") >= 0)
+		{
+			response = "I love cookies :)";
+			emotion++;
 		}
 
 		// Response transforming I want to statement
@@ -72,9 +77,9 @@ public class ChatBot3
 		{
 			response = transformIWantToStatement(statement);
 		}
-		else if (findKeyword(statement, "I like",0) >= 0)
+		else if (findKeyword(statement, "I want",0) >= 0)
 		{
-			response = transformILikeStatement(statement);
+			response = transformIWantStatement(statement);
 		}	
 		else
 		{
@@ -113,7 +118,7 @@ public class ChatBot3
 	 * @param statement the user statement, assumed to contain "I want"
 	 * @return the transformed statement
 	 */
-	private String transformILikeStatement(String statement)
+	private String transformIWantStatement(String statement)
 	{
 		//  Remove the final period, if there is one
 		statement = statement.trim();
@@ -124,9 +129,9 @@ public class ChatBot3
 			statement = statement.substring(0, statement
 					.length() - 1);
 		}
-		int psn = findKeyword (statement, "I like", 0);
+		int psn = findKeyword (statement, "I want", 0);
 		String restOfStatement = statement.substring(psn + 6).trim();
-		return "Why like  " + restOfStatement + " when you can like trash?";
+		return "Would you really be happy if you had " + restOfStatement + "?";
 	}
 	
 	
@@ -244,17 +249,26 @@ public class ChatBot3
 	private String getRandomResponse ()
 	{
 		Random r = new Random ();
-		return randomAngryResponses [r.nextInt(randomAngryResponses.length)];
+		if (emotion == 0)
+		{	
+			return randomNeutralResponses [r.nextInt(randomNeutralResponses.length)];
+		}
+		if (emotion < 0)
+		{	
+			return randomAngryResponses [r.nextInt(randomAngryResponses.length)];
+		}	
+		return randomHappyResponses [r.nextInt(randomHappyResponses.length)];
 	}
-	private String getRandomFarewell(){
-		Random r=new Random();
-		return randomFarewells[r.nextInt(randomFarewells.length)];
-	}
-	private String getRandomIdle(){
-		Random r=new Random();
-		return randomIdle[r.nextInt((randomIdle.length))];
-	}
-	private String [] randomAngryResponses = {"I do not enjoy your pestering"};
-	private String[] randomFarewells={"Have a rotten day!","Now leave me alone and get lost!","Scram!"};
-	private String[] randomIdle={"Are you just going to stand there?","You're still here? Hey, why don't you go read a book or something?"};
+	
+	private String [] randomNeutralResponses = {"Interesting, tell me more",
+			"Hmmm.",
+			"Do you really think so?",
+			"You don't say.",
+			"It's all boolean and cookies to me.",
+			"So, would you like to go get cookies?",
+			"Cookie?"
+	};
+	private String [] randomAngryResponses = {"Give me cookie now!", "Harumph", "The rage consumes me!"};
+	private String [] randomHappyResponses = {"C O O K I E, what's that spell?", "Today is a good day FOR COOKIES", "You make me feel like a WARM COOKIE."};
+	
 }
