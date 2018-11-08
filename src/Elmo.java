@@ -284,8 +284,8 @@ public class Elmo
 			"Na na na. na na na, Elmos world!",
 			"It's all elmo to me.",
 			"So, would you like to play?",
-			"Could you say that again?"
+			"Elmo wanna make you happy!!!"
 	};
-	private String [] randomAngryResponses = {"Elmo Love You", "Tickle me!!!", "Elmo is consumed by love"};
-	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "You make me feel like a brand new pair of shoes."};
+	private String [] randomAngryResponses = {"Elmo wanna kiss you!!", "Tickle me!!!", "Baby Tickle me one more time!!!"};
+	private String [] randomHappyResponses = {"T IC K L E M E, what's that spell?", "Elmo want a lollipop!! shhhlerpppp", "you make me feel like ball of fur!!."};
 }
