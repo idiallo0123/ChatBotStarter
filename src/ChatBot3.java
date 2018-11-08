@@ -63,14 +63,8 @@ public class ChatBot3
 
 		else if (findKeyword(statement, "no") >= 0)
 		{
-			response = "Why so negative?";
+			response = "No";
                 	emotion--;
-		}
-		
-		else if (findKeyword(statement, "levin") >= 0)
-		{
-			response = "More like LevinTheDream amiright?";
-			emotion++;
 		}
 
 		// Response transforming I want to statement
@@ -78,7 +72,7 @@ public class ChatBot3
 		{
 			response = transformIWantToStatement(statement);
 		}
-		else if (findKeyword(statement, "I want",0) >= 0)
+		else if (findKeyword(statement, "I like",0) >= 0)
 		{
 			response = transformILikeStatement(statement);
 		}	
@@ -250,11 +244,7 @@ public class ChatBot3
 	private String getRandomResponse ()
 	{
 		Random r = new Random ();
-		if (emotion <= 0)
-		{	
-			return randomAngryResponses [r.nextInt(randomAngryResponses.length)];
-		}	
-		return randomHappyResponses [r.nextInt(randomHappyResponses.length)];
+		return randomAngryResponses [r.nextInt(randomAngryResponses.length)];
 	}
 	private String getRandomFarewell(){
 		Random r=new Random();
@@ -265,7 +255,6 @@ public class ChatBot3
 		return randomIdle[r.nextInt((randomIdle.length))];
 	}
 	private String [] randomAngryResponses = {"I do not enjoy your pestering"};
-	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "You make me feel like a brand new pair of shoes."};
 	private String[] randomFarewells={"Have a rotten day!","Now leave me alone and get lost!","Scram!"};
 	private String[] randomIdle={"Are you just going to stand there?","You're still here? Hey, why don't you go read a book or something?"};
 }

@@ -23,7 +23,7 @@ public class ChatBot2
 		System.out.println (getGreeting());
 
 
-		while (!statement.equals("Bye"))
+		while (!statement.equalsIgnoreCase("Bye"))
 		{
 
 
