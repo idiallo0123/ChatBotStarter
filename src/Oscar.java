@@ -108,8 +108,8 @@ public class Oscar
 
 	
 	/**
-	 * Take a statement with "I want <something>." and transform it into 
-	 * "Would you really be happy if you had <something>?"
+	 * Take a statement with "I like <something>." and transform it into
+	 * "Why like <something>? when you can like trash?"
 	 * @param statement the user statement, assumed to contain "I want"
 	 * @return the transformed statement
 	 */
