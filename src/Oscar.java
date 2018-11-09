@@ -152,7 +152,7 @@ public class Oscar
 		int psnOfYou = findKeyword (statement, "you", psnOfI);
 		
 		String restOfStatement = statement.substring(psnOfI + 1, psnOfYou).trim();
-		return "Why do you " + restOfStatement + " me?";
+		return "I think I " + restOfStatement + " you more.";
 	}
 	
 
