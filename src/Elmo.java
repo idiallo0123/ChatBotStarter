@@ -90,7 +90,7 @@ public class Elmo
 		}
 		else if (findKeyword(statement, "is my favorite",0) >=0)
 		{
-			response = transformIFeelStatement(statement);
+			response = transformismyfavoriteStatement(statement);
 		}
 		else
 		{
@@ -119,7 +119,7 @@ public class Elmo
 		}
 		int psn = findKeyword (statement, "i like to", 0);
 		String restOfStatement = statement.substring(psn + 9).trim();
-		return "Elmo wants to know why " + restOfStatement + "impacts you?";
+		return "Elmo wants to know why " + restOfStatement + "ing impacts you?";
 	}
 
 
@@ -150,7 +150,7 @@ public class Elmo
 	 * @param statement the user statement, assumed to contain "I" followed by "you"
 	 * @return the transformed statement
 	 */
-	private String transformIYouStatement(String statement)
+	private String transformismyfavoriteStatement(String statement)
 	{
 		//  Remove the final period, if there is one
 		statement = statement.trim();
@@ -161,12 +161,9 @@ public class Elmo
 			statement = statement.substring(0, statement
 					.length() - 1);
 		}
-
-		int psnOfI = findKeyword (statement, "I", 0);
-		int psnOfYou = findKeyword (statement, "you", psnOfI);
-
-		String restOfStatement = statement.substring(psnOfI + 1, psnOfYou).trim();
-		return "Why do you " + restOfStatement + " me?";
+		int psn = findKeyword (statement, "is my favorite", 0);
+		String restOfStatement = statement.substring(psn + 6).trim();
+		return "Elmo like to know why you are " + restOfStatement + "?";
 	}
 
 	private String transformIFeelStatement(String statement)
