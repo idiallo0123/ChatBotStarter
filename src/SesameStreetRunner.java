@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+// Ibrahima Diallo, Jacky Chen, and Charles Huang
 /**
  * A simple class to run our chatbot teams.
  * @author Brooklyn Tech CS Department

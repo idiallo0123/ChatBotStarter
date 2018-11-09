@@ -1,6 +1,6 @@
 import java.util.Random;
 import java.util.Scanner;
-
+// JACKY CHEN
 /**
  * A program to carry on conversations with a human user.
  * This version:
