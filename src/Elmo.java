@@ -80,15 +80,15 @@ public class Elmo
 		}
 
 		// Response transforming I want to statement
-		else if (findKeyword(statement, "I want to", 0) >= 0)
+		else if (findKeyword(statement, "i like to", 0) >= 0)
 		{
-			response = transformIWantToStatement(statement);
+			response = transformiliketoStatement(statement);
 		}
-		else if (findKeyword(statement, "I want",0) >= 0)
+		else if (findKeyword(statement, "i am",0) >= 0)
 		{
-			response = transformIWantStatement(statement);
+			response = transformIamStatement(statement);
 		}
-		else if (findKeyword(statement, "I feel",0) >=0)
+		else if (findKeyword(statement, "is my favorite",0) >=0)
 		{
 			response = transformIFeelStatement(statement);
 		}
@@ -106,7 +106,7 @@ public class Elmo
 	 * @param statement the user statement, assumed to contain "I want to"
 	 * @return the transformed statement
 	 */
-	private String transformIWantToStatement(String statement)
+	private String transformiliketoStatement(String statement)
 	{
 		//  Remove the final period, if there is one
 		statement = statement.trim();
@@ -117,7 +117,7 @@ public class Elmo
 			statement = statement.substring(0, statement
 					.length() - 1);
 		}
-		int psn = findKeyword (statement, "I like to", 0);
+		int psn = findKeyword (statement, "i like to", 0);
 		String restOfStatement = statement.substring(psn + 9).trim();
 		return "Elmo wants to know why " + restOfStatement + "impacts you?";
 	}
@@ -129,7 +129,7 @@ public class Elmo
 	 * @param statement the user statement, assumed to contain "I want"
 	 * @return the transformed statement
 	 */
-	private String transformIWantStatement(String statement)
+	private String transformIamStatement(String statement)
 	{
 		//  Remove the final period, if there is one
 		statement = statement.trim();
@@ -140,7 +140,7 @@ public class Elmo
 			statement = statement.substring(0, statement
 					.length() - 1);
 		}
-		int psn = findKeyword (statement, "I am", 0);
+		int psn = findKeyword (statement, "i am", 0);
 		String restOfStatement = statement.substring(psn + 6).trim();
 		return "Elmo like to know why you are " + restOfStatement + "?";
 	}
