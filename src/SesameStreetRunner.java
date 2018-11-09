@@ -26,7 +26,7 @@ public class SesameStreetRunner
 		while (!statement.equalsIgnoreCase("Bye"))
 		{
 			//Use Logic to control which chatbot is handling the conversation\
-			//This example has only chatbot1
+			//Asks user for which bot they would like to talk to
 			System.out.println("Would you like to Elmo, Cookie Monster, or Oscar");
 			Scanner input = new Scanner(System.in);
 			String choice = input.nextLine();
